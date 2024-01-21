@@ -1,61 +1,92 @@
 package task.collection;
 
+import java.util.*;
+
 public class Collection {
-    public static void main(String[] args) {
-
-
+    public static void maxElement(List<Integer> list) {
+        Collections.sort(list);
+        System.out.println(list.get(list.size() - 1));
     }
 
-    // Реализуйте функциональность согласно описанию
+    public static List<Integer> deleteDuplicate(List<Integer> list) {
+        Set<Integer> set = new HashSet<>(list);
+        list.clear();
+        list.addAll(set);
+        return list;
+    }
 
-    // TODO: Для каждой задачи сгенерируйте самостоятельно коллекции и карты для тестирования своих методов
+    public static List<Integer> duplicate(List<Integer> list, List<Integer> list2) {
+        List<Integer> listResult = new ArrayList<>();
+        for (int i : list2) {
+            if (list.contains(i)) {
+                listResult.add(i);
+            }
+        }
+        return listResult;
+    }
 
-    // TODO: Найти наибольший элемент в списке.
+    public static void main(String[] args) {
+        // TODO: Реализуйте функциональность согласно описанию
+        // TODO: Для каждой задачи сгенерируйте самостоятельно коллекции и карты для тестирования своих методов
+        List<Integer> list = new ArrayList<>();
+        list.add(5);
+        list.add(9);
+        list.add(6);
+        list.add(2);
+        list.add(9);
+        list.add(4);
+        List<Integer> list2 = new ArrayList<>();
+        list2.add(6);
+        list2.add(1);
+        list2.add(3);
+        list2.add(1);
+        list2.add(5);
+        list2.add(8);
 
-    // TODO: Удалить все дубликаты из списка.
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "zxzx");
+        map.put(2, "sdsd");
+        map.put(3, "fgfg");
+        map.put(4, "sdsd");
 
-    // TODO: Отсортировать список в порядке убывания.
+        // TODO: Найти наибольший элемент в списке.
+        Collection.maxElement(list);
 
-    // TODO: Проверить, содержит ли множество определенный элемент.
+        // TODO: Удалить все дубликаты из списка.
+        System.out.println(Collection.deleteDuplicate(list));
 
-    // TODO: Найти пересечение двух множеств.
+        // TODO: Отсортировать список в порядке убывания.
+        Collections.sort(list);
+        System.out.println(list);
 
-    // TODO: Удалить все элементы из множества, которые также содержатся в другом множестве.
+        // TODO: Проверить, содержит ли множество определенный элемент.
+        System.out.println(list.contains(4));
 
-    // TODO: Проверить, содержит ли карта определенный ключ.
+        // TODO: Найти пересечение двух множеств.
+        System.out.println(Collection.duplicate(list, list2));
 
-    // TODO: Получить все значения, связанные с определенным ключом.
+        // TODO: Удалить все элементы из множества, которые также содержатся в другом множестве.
+        list.removeAll(list2);
+        System.out.println(list);
 
-    // TODO: Удалить все записи из карты, у которых значение равно определенному значению.
+        // TODO: Проверить, содержит ли карта определенный ключ.
+        System.out.println(map.containsKey(3));
 
-    // TODO: Добавить элемент в очередь.
+        // TODO: Получить все значения, связанные с определенным ключом.
+        System.out.println(map.get(2));
 
-    // TODO: Получить и удалить первый элемент из очереди.
+        // TODO: Удалить все записи из карты, у которых значение равно определенному значению.
+        map.values().removeAll(Collections.singleton("sdsd"));
 
-    // TODO: Проверить, пуста ли очередь.
+        // TODO: Добавить элемент в очередь.
+        Queue<String> queue = new LinkedList<>();
+        queue.offer("Akim");
 
-    // TODO: Учет заказов:
-    //  Создайте класс Order с полями id, customer и totalAmount.
-    //  Создайте метод, который будет принимать список заказов и выводить заказы с наибольшей суммой.
-    //  Создайте метод, который будет принимать список заказов и возвращать общую сумму всех заказов.
+        // TODO: Получить и удалить первый элемент из очереди.
+        System.out.println(queue.element());
+        queue.remove();
 
-    // TODO: Управление задачами:
-    //  Создайте класс Task с полями id, title и completed.
-    //  Создайте метод, который будет принимать список задач и выводить только незавершенные задачи на экран.
-    //  Создайте метод, который будет принимать список задач и возвращать список задач с определенным заголовком.
-
-    // TODO: Создание списка студентов:
-    //  Создайте класс Student с полями name и age.
-    //  Создайте метод, который будет принимать список студентов и выводить их на экран.
-    //  Создайте метод, который будет принимать список студентов и возвращать список студентов, у которых возраст больше определенного значения.
-
-    // TODO: Учет товаров на складе:
-    //  Создайте класс Product с полями id, name и quantity.
-    //  Создайте метод, который будет принимать список товаров и выводить только товары с нулевым количеством на складе.
-    //  Создайте метод, который будет принимать список товаров и возвращать общее количество товаров на складе.
-
-    // TODO: Учет посещаемости:
-    //  Создайте класс Student с полями name и attendance.
-    //  Создайте метод, который будет принимать список студентов и выводить студентов с наихудшей посещаемостью.
-    //  Создайте метод, который будет принимать список студентов и возвращать среднюю посещаемость.
+        // TODO: Проверить, пуста ли очередь.
+        System.out.println(queue.poll());
+    }
 }
